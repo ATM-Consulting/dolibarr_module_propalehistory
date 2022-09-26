@@ -13,18 +13,19 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 /**
- * 	\file		admin/doc2project.php
- * 	\ingroup	doc2project
- * 	\brief		This file is an example module setup page
- * 				Put some comments here
+ * 	\file		propalhistory/admin/propalhistory_setup.php
+ * 	\ingroup	propalhistory
+ * 	\brief		setup page for module propalhistory
+ *
  */
 
 // Dolibarr environment
 require '../config.php';
+
 // Libraries
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
 
@@ -37,12 +38,15 @@ if (! $user->admin) {
 }
 
 $newToken = function_exists('newToken') ? newToken() : $_SESSION['newtoken'];
+
 // Parameters
 $action = GETPOST('action', 'alpha');
+
 
 /*
  * Actions
  */
+
 if (preg_match('/set_(.*)/',$action,$reg))
 {
 	$code=$reg[1];
@@ -79,9 +83,11 @@ if (preg_match('/del_(.*)/',$action,$reg))
 	}
 }
 
+
 /*
  * View
  */
+
 $page_name = "PropalHistory";
 llxHeader('', $langs->trans($page_name));
 
