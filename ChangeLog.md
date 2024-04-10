@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ## Release 2.6
 
+- FIX : update form confirm hook return on condition  - *10/04/2024* - 2.6.1  
 - FIX : Compatibility V19  *21/11/2023* - 2.6.0
 
 ## Release 2.5

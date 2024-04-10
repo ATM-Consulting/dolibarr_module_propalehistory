@@ -139,6 +139,13 @@ class ActionsPropalehistory extends \propalehistory\RetroCompatCommonHookActions
 	{
 		global $conf, $langs, $db, $user;
 
+		// dans le cas du presend et de la propal card nous voulons retourner 1 pour conserver l'affichage du form mail
+		// si nous placons ce code dans le if du dessous le getpost ecrase la valeur presend
+		if ( in_array('propalcard', explode(':', $parameters['context']) ) && $action == 'presend' ) {
+			return 1;
+		}
+
+
 		if (in_array('propalcard', explode(':', $parameters['context'])) && getDolGlobalString('PROPALEHISTORY_ARCHIVE_ON_MODIFY'))
 		{
             $action = GETPOST('action', 'alphanohtml');
@@ -156,6 +163,7 @@ class ActionsPropalehistory extends \propalehistory\RetroCompatCommonHookActions
 
 				return 1; // replace standard code
 			}
+
 		}
 
         return 0;
