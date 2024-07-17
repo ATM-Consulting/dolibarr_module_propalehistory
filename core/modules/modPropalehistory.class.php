@@ -155,7 +155,7 @@ class modPropalehistory extends DolibarrModules
         // 'categories_x'		to add a tab in category view
         // (replace 'x' by type of category (0=product, 1=supplier, 2=customer, 3=member)
         // Dictionnaries
-        if (! isset($conf->mymodule->enabled)) {
+        if (! isModEnabled('mymodule')) {
             $conf->mymodule=new stdClass();
             $conf->mymodule->enabled = 0;
         }
@@ -211,7 +211,7 @@ class modPropalehistory extends DolibarrModules
         include_once DOL_DOCUMENT_ROOT.'/core/class/extrafields.class.php';
         $extrafields = new ExtraFields($this->db);
         // proposal version
-        $result = $extrafields->addExtraField('propalehistory_version_num', 'PropaleHistoryVersionNum', 'int', 1000, '', 'propal', 0, 0, '', '', 0, '', '-4', '', '', 0, 'propalehistory@propalehistory', '$conf->propalehistory->enabled', 0);
+        $result = $extrafields->addExtraField('propalehistory_version_num', 'PropaleHistoryVersionNum', 'int', 1000, '', 'propal', 0, 0, '', '', 0, '', '-4', '', '', 0, 'propalehistory@propalehistory', 'isModEnabled('propalehistory')', 0);
 
         return $this->_init($sql, $options);
     }
