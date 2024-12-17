@@ -45,8 +45,7 @@
 			if($code === false) {
 				$code = $this->serialized_parent_propale;
 			}
-
-			$propal = unserialize($code);
+			$propal = unserialize($code, ["allowed_classes" => ["Propale", "PropaleLigne"]]);
 			if($propal === false) $propal = unserialize(utf8_decode($code));
 
 			return $propal;
